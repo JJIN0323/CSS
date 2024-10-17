@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SELECTOR RANK 4</title>
+    <link rel="stylesheet" href="seletor.css" />
+
+    <style>
+
+        .rank {
+            font-size: 0.8rem;
+            letter-spacing: 0.5rem;
+        }
+
+        .test1 {
+            font-size: 1.5rem;
+            background: rgb(214, 214, 214);
+        }
+        /* 우선 순위가 밀리더라도, 스타일 속성이 중복되지 않으면 적용 가능 */
+        div {
+            background: black;
+        }
+
+        #test1 {
+            font-size: 1rem;
+            background: white;
+        }
+
+        .test2 {
+            font-weight: 900 !important;
+            background: rgb(214, 214, 214) !important;
+        }
+
+        #test2 {
+            background: white;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h2>* SELECTOR RANKING *</h2>
+    <p class="rank">TAG SELECTOR ▼<br>CLASS SELECTOR ▼<br>ID SELECTOR ▼<br>INLINE SELECTOR ▼<br>!IMPORTANT RANK</p>
+    <hr>
+
+    <h2>* SELECTOR RANKING TEST *</h2>
+
+    <div id="test1" class="test1">RANKING TEST</div>
+
+    <hr>
+
+    <p id="test2" class="test2">RANKING TEST</p>
+
+    <hr>
+
+    
+
+</body>
+</html>

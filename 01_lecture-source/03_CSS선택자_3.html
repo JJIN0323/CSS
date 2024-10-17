@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS SELECTOR 3</title>
+
+    <link rel="stylesheet" href="seletor.css" />
+
+    <style>
+        #div-test1 {
+            text-transform: uppercase;
+            text-decoration: underline;
+        }
+
+        /* 해당요소 바로 다음에 특정 타입요소 선택 */
+
+        #div-test1 + div {
+            text-decoration: line-through;
+            text-transform: uppercase;
+        }
+
+        #div-test1 ~ div {
+            font-weight: bold;
+        }
+
+        #test :first-child {
+            letter-spacing: -0.1rem;
+        }
+
+        /* 태그 종류 관계 없이 형제관계라면 가능 */
+        #test :last-child {
+            letter-spacing: 0.3rem;
+        }
+
+        /* 형제관계 태그 중 앞에서 수열번째 태그 선택 */
+        #test :nth-child(2n) {
+            color: black;
+        }
+
+        #test :nth-last-child(4) {
+            font-weight: 100;
+        }
+
+        #test2 :first-of-type {
+            font-weight: 200;
+        }
+
+        #test2 p:last-of-type {
+            letter-spacing: 0.8rem;
+        }
+
+        #test2 p:nth-of-type(2n) {
+            color: black;
+        }
+
+        #test2 p:nth-last-of-type(3) {
+            text-decoration: underline;
+        }
+
+        /* 짝수 : even/2n || 홀수 : odd/2n-1 */
+        #test3 p:not(:nth-child(2n-1)) {
+            background: black;
+            color: white;
+        }
+
+        /* 첫번째 문자 */
+        #test4 p::first-letter {
+            font-size: 1.5rem;
+        }
+
+        /* 한 문장 */
+        #test4 p::first-line {
+            background: rgb(182, 182, 182);
+        }
+
+        #test4 p::selection {
+            background: white;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h2>* SAME RELATIONSHIP *</h2>
+    
+    <P></P>
+    <div id="div-test1">div~test1</div>
+    <div id="div-test2">div~test2</div>
+    <div id="div-test3">div~test3</div>
+    <div id="div-test4">div~test4</div>
+    <div id="div-test5">div~test5</div>
+
+    <script type="text/javascript">
+        window.onload = function() {
+            let second = document.querySelector('div[id=div-test2]');
+            console.log(typeof second)
+        }
+    </script>
+
+    <hr>
+
+    <h2>* GENERAL TREE SELECTOR *</h2>
+
+    <div id="test">
+        <p>TEST1</p>
+        <p>TEST2</p>
+        <p>TEST3</p>
+        <p>TEST4</p>
+        <p>TEST5</p>
+        <pre>TEST6</pre>
+    </div>
+
+    <hr>
+
+    <h2>* OBJECT TREE SELECTOR *</h2>
+
+    <div id="test2">
+        <p>TEST1</p>
+        <p>TEST2</p>
+        <p>TEST3</p>
+        <p>TEST4</p>
+        <p>TEST5</p>
+        <pre>TEST6</pre>
+    </div>
+
+    <hr>
+
+    <h2>* NEGATIVE SELECTOR *</h2>
+    <div id="test3">
+        <p>TEST1</p>
+        <p>TEST2</p>
+        <p>TEST3</p>
+        <p>TEST4</p>
+        <p>TEST5</p>
+        <pre>TEST6</pre>
+    </div>
+
+    <hr>
+
+    <h2>* STRING SELECTOR *</h2>
+    <div id="test4">
+        <p>TEST</p>
+    </div>
+
+</body>
+</html>
