@@ -39,6 +39,15 @@
             align-items: center;
             justify-content: center;
         }
+        
+        .listStyle {
+            list-style: inside;
+        }
+
+        .listStyle > #ID1 {
+            font-style: italic;
+            font-weight: bold;
+        }
 
     </style>
 
@@ -70,7 +79,18 @@
     <hr>
 
     <p>* CLASS SELECTOR *</p>
+    
+    <ol class="listStyle">
+        <li id="ID1">TEST1</li>
+        <li id="ID2">TEST2</li>
+        <li id="ID3">TEST3</li>
+        <li id="ID4">TEST4</li>
+        <li id="ID5">TEST5</li>
+    </ol>
+    
+    <hr>
 
+    <p>* SELECTOR *</p>
 
 </body>
 </html>
