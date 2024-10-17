@@ -1,11 +1,211 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CSS SELECTOR 2</title>
+
+    <style>
+
+    body {
+            background: rgb(214, 214, 214);
+        }
+
+        body * {
+            font-family: "Noto Serif", serif;
+            color: rgb(102, 102, 102);
+            text-align: center;
+        }
+
+        hr {
+            width: 94vw;
+            margin: 20px 0;
+        }
+
+        h2, p {
+            font-weight: bold;
+            letter-spacing: 0.3rem;
+        }
+
+        input, textarea, select {
+            display: block;
+            margin-bottom: 10px;
+            padding: 5pt 5px;
+            border: 2px solid gray;
+        }
+
+        div.box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 속성 안의 값이 속성 값을 띄어쓰기 단위로 포함하는 객체도 선택. */
+        div[name~="name6"] {
+            font-style: italic;
+        }
+
+        .class2[name="name2"] {
+            text-decoration: line-through;
+        }
+
+        /* 속성값이 특정 값과 일치하거나 '-'문자가 곧바로 해당 값 뒤에 뭍는 객체 선택. */
+
+        div[class|="class"] {
+            text-decoration: underline;
+        }
+
+        /* 속성 값을 가지고 있으며, 접두사로 값이 포함되어 있는 객체 선택. ]
+           (name이 포함된 모든것에 적용해줌) */
+        
+        div[name^="name"] {
+            font-weight: 300;
+        }
+
+        /* 속성 안의 값이 특정값으로 끝나는 (접미사) 객체 선택. */
+
+        div[class$="class"] {
+            color: black;
+        }
+
+        /* 속성 안의 값이 특정 값을 포함하는 객체 선택 */
+        div[class*="div"] {
+            color: rgb(255, 255, 255);
+        }
+
+        #test1 > h5 {
+            font-weight: 200;
+        }
+
+        #test1 > div > ul {
+            list-style: inside;
+            padding: 0;
+        }
+
+        /* 후손 선택자 테스트 */
+
+        #test1 * li {
+            text-decoration: line-through;
+        }
+
+        /* 형제 관계 (동위 관계) 선택자 */
+        
+        #active:active {
+            color: white;
+            background: black;
+            cursor: pointer;
+        }
+
+        #hover:hover {
+            color: white;
+            background: black;
+            cursor: pointer;
+        }
+
+        div.box > input[type="checkbox"] {
+            margin: 0 0.5rem;
+        }
+
+        div.box > input[type="checkbox"]:checked {
+            width: 1.2rem;
+            height: 1.2rem;
+        }
+
+        #userId:focus, #userPassword:focus {
+            border: inherit black;
+        }
+
+        select option:disabled {
+            background: gray;
+            color: white;
+        }
+
+    </style>
+
 </head>
 <body>
     
+    <h2>CSS SELECTOR INNER METHOD</h2>
+
+    <hr>
+    
+    <p>* SELECTOR [ ATTRIBUTE = VALUE ] *</p>
+
+    <div name="name1 name5 name6" class="div-class1">NAME</div>
+    <div name="name2" class="div-class2">BIRTHDAY</div>
+    <div name="name3" class="div-class3">GENDER</div>
+    <div name="name4" class="class-div4">AGE</div>
+
+    <hr>
+
+    <p>* > & * METHOD *</p>
+    <div id="test1">
+        <h5>HELLO ~</h5>
+        <h5>WORLD !</h5>
+        <div>
+            <ul>
+                <li>LIST 1</li>
+                <li>LIST 2</li>
+            </ul>
+        </div>
+    </div>
+
+    <hr>
+
+    <p>* RESPONSIVE SELECTOR *</p>
+
+    <pre>USER CLICK TAG<br>[ selector:active ]<br><br>USER MOUSE ON<br>[ selector:hover ]</pre>
+    <div id="active">+ ACTIVE +</div>
+    <div id="hover">+ HOVER +</div>
+
+    <hr>
+
+    <p>* STATUS SELECTOR *</p>
+
+    <div class="box">
+        <label for="APPLE">APPLE</label><br>
+        <input type="checkbox" name="fruits" value="APPLE" id="APPLE">
+        <label for="BANANA">/ BANANA</label><br>
+        <input type="checkbox" name="fruits" value="BANANA" id="BANANA">
+        <label for="MANGO">/ MANGO</label><br>
+        <input type="checkbox" name="fruits" value="MANGO" id="MANGO">
+    </div>
+
+    <hr>
+
+    <div class="box">
+        <input type="text" name="userId" id="userId" placeholder="ID">
+    </div>
+    <div class="box">
+        <input type="password" name="userPassword" id="userPassword" placeholder="PASSWORD">
+    </div>
+
+    <hr>
+
+    <p>* INPUT TAG SELECT *</p>
+
+    <div class="box">
+        <select>
+            <option value="ICE">ICE</option>
+            <option value="WATER">WATER</option>
+            <option value="JUICE">JUICE</option>
+            <option value="COCOA">COCOA</option>
+            <option value="SALT" disabled>SALT</option>
+            <option value="SUGAR">SUGAR</option>
+        </select>
+    </div>
+    <div class="box">
+        <input type="text" placeholder="DISABLED" disabled>
+    </div>
+    <div class="box" style="margin-bottom: 0.7rem;">
+        <button>ENABLED</button>
+    </div>
+    <div class="box">
+        <button disabled>DISABLED</button>
+    </div>
+
 </body>
 </html>
