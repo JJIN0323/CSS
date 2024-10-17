@@ -39,11 +39,10 @@ section {
 
 article {
     float: left;
-    width: 50%;
+    width: 100%;
 }
 
 article.right {
-    width: 600px;
     height: 200px;
     border-top: 1px solid gray;
     border-right: 1px solid gray;
@@ -56,6 +55,11 @@ article.right:nth-child(2) {
 article.left {
     height: 400px;
     border: 1px solid gray;
+}
+
+.float {
+    float: left;
+    width: 10em;
 }
 
 .flex {
